@@ -1,0 +1,19 @@
+// LOCALHOST
+###
+GET http://localhost:8080/contacts
+###
+GET http://localhost:8080/contacts/68d35d479f9482c849239dbb
+###
+GET http://localhost:8080/contacts/68d35d479f9482c849239dbc
+###
+GET http://localhost:8080/contacts/68d35d479f9482c849239dbd
+
+// PRODUCTION Deploy
+###
+GET https://https://lesson-2-gamu.onrender.com/contacts
+###
+GET https://https://lesson-2-gamu.onrender.com/contacts/68d35d479f9482c849239dbb
+###
+GET https://https://lesson-2-gamu.onrender.com/contacts/68d35d479f9482c849239dbc
+###
+GET https://https://lesson-2-gamu.onrender.com/contacts/68d35d479f9482c849239dbd

@@ -1,4 +1,3 @@
-const { ObjectId } = require('mongodb');
 const mongodb = require('../db');
 
 exports.professional = async (req, res) => {
