@@ -17,3 +17,17 @@ exports.getContact = async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.status(200).json(result);
 };
+
+exports.createContact = async (req, res) => {
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+    const result = await mongodb.getDb().collection('contacts').insertOne({
+      firstName,
+      lastName,
+      email,
+      favoriteColor,
+      birthday: birthday,
+      createdAt: new Date(),
+    });
+
+    res.status(201).json({ id: String(result.insertedId) });
+}

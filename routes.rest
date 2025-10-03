@@ -17,3 +17,19 @@ GET https://lesson-2-gamu.onrender.com/contacts/68d35d479f9482c849239dbb
 GET https://lesson-2-gamu.onrender.com/contacts/68d35d479f9482c849239dbc
 ###
 GET https://lesson-2-gamu.onrender.com/contacts/68d35d479f9482c849239dbd
+
+
+### Create a new contact
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "lastName": "Smith",
+  "email": "alice@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1990-01-01"
+}
+
+###
+GET http://localhost:8080/contacts/68dfd5c4775b7219625e223f
