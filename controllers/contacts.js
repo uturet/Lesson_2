@@ -30,4 +30,43 @@ exports.createContact = async (req, res) => {
     });
 
     res.status(201).json({ id: String(result.insertedId) });
-}
+};
+
+exports.updateContact = async (req, res) => {
+  const { id } = req.params;
+
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid contact id format.' });
+  }
+
+  const contactId = ObjectId.createFromHexString(id);
+  const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+  const updateFields = {
+    firstName,
+    lastName,
+    email,
+    favoriteColor,
+    birthday,
+  };
+
+  Object.keys(updateFields).forEach((key) => {
+    if (updateFields[key] === undefined) {
+      delete updateFields[key];
+    }
+  });
+
+  if (!Object.keys(updateFields).length) {
+    return res.status(400).json({ message: 'No update fields provided.' });
+  }
+
+  const result = await mongodb
+    .getDb()
+    .collection('contacts')
+    .updateOne({ _id: contactId }, { $set: updateFields });
+
+  if (!result.matchedCount) {
+    return res.status(404).json({ message: 'Contact not found.' });
+  }
+
+  res.status(204).send();
+};

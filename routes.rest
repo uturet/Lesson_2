@@ -31,5 +31,14 @@ Content-Type: application/json
   "birthday": "1990-01-01"
 }
 
+### Update an existing contact
+PUT http://localhost:8080/contacts/68dfd5d3775b7219625e2240
+Content-Type: application/json
+
+{
+  "firstName": "Alice",
+  "favoriteColor": "Green"
+}
+
 ###
-GET http://localhost:8080/contacts/68dfd5c4775b7219625e223f
+GET http://localhost:8080/contacts/68dfd5d3775b7219625e2240
