@@ -26,7 +26,6 @@ exports.createContact = async (req, res) => {
       email,
       favoriteColor,
       birthday: birthday,
-      createdAt: new Date(),
     });
 
     res.status(201).json({ id: String(result.insertedId) });
@@ -67,6 +66,22 @@ exports.updateContact = async (req, res) => {
   if (!result.matchedCount) {
     return res.status(404).json({ message: 'Contact not found.' });
   }
+
+  res.status(204).send();
+};
+
+exports.deleteContact = async (req, res) => {
+  const { id } = req.params;
+
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid contact id format.' });
+  }
+
+  const contactId = ObjectId.createFromHexString(id);
+  const result = await mongodb
+    .getDb()
+    .collection('contacts')
+    .deleteOne({ _id: contactId });
 
   res.status(204).send();
 };

@@ -32,7 +32,7 @@ Content-Type: application/json
 }
 
 ### Update an existing contact
-PUT http://localhost:8080/contacts/68dfd5d3775b7219625e2240
+PUT http://localhost:8080/contacts/68dfda4c1136fa83ea42f4b9
 Content-Type: application/json
 
 {
@@ -40,5 +40,14 @@ Content-Type: application/json
   "favoriteColor": "Green"
 }
 
+
 ###
-GET http://localhost:8080/contacts/68dfd5d3775b7219625e2240
+GET http://localhost:8080/contacts/68dfda4c1136fa83ea42f4b9
+
+
+### Delete a contact
+DELETE http://localhost:8080/contacts/68dfda4c1136fa83ea42f4b9
+
+
+###
+GET https://lesson-2-gamu.onrender.com/contacts
