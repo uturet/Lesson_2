@@ -5,7 +5,8 @@ const doc = {
     title: 'Contacts API',
     description: 'Contacts API routes description'
   },
-  host: 'localhost:8080'
+  host: 'lesson-2-gamu.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger-output.json';
