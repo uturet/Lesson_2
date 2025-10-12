@@ -11,7 +11,7 @@ const swaggerDocs = require('./swagger-output.json');
 app
   .use(cors())
   .use('/api-docs', swagger.serve, swagger.setup(swaggerDocs))
-  // .use(express.json())
+  .use(express.json())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Content-Type', 'application/json');
