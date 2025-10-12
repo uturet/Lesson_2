@@ -2,12 +2,18 @@ const { ObjectId } = require('mongodb');
 const mongodb = require('../db');
 
 exports.getContacts = async (req, res) => {
+  /*
+    #swagger.description = 'Get all contacts'
+  */
   const result = await mongodb.getDb().collection('contacts').find().toArray();
   res.setHeader('Content-Type', 'application/json');
   res.status(200).json(result);
 };
 
 exports.getContact = async (req, res) => {
+  /*
+    #swagger.description = 'Get one contact by id'
+  */
   const id = ObjectId.createFromHexString(req.params.id);
   const result = await mongodb
     .getDb()
@@ -19,6 +25,9 @@ exports.getContact = async (req, res) => {
 };
 
 exports.createContact = async (req, res) => {
+  /*
+    #swagger.description = 'Create new contact'
+  */
     const { firstName, lastName, email, favoriteColor, birthday } = req.body;
     const result = await mongodb.getDb().collection('contacts').insertOne({
       firstName,
@@ -32,6 +41,9 @@ exports.createContact = async (req, res) => {
 };
 
 exports.updateContact = async (req, res) => {
+  /*
+    #swagger.description = 'Update a contact by id'
+  */
   const { id } = req.params;
 
   if (!ObjectId.isValid(id)) {
@@ -71,6 +83,9 @@ exports.updateContact = async (req, res) => {
 };
 
 exports.deleteContact = async (req, res) => {
+  /*
+    #swagger.description = 'Delete contact by id'
+  */
   const { id } = req.params;
 
   if (!ObjectId.isValid(id)) {
