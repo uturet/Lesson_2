@@ -5,10 +5,10 @@
     "description": "Contacts API routes description",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "lesson-2-gamu.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/api-docs": {
